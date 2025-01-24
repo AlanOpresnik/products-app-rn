@@ -33,12 +33,13 @@ const returnUserToken = (
 
 export const authLogin = async (email: string, password: string) => {
   email = email.toLocaleLowerCase();
-
+  
   try {
     const { data } = await productApi.post<AuthResponse>("/auth/login", {
       email,
       password,
     });
+  
     return returnUserToken(data);
   } catch (error) {
     console.log(error);

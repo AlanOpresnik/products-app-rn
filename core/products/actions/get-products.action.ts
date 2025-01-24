@@ -9,10 +9,11 @@ export const getProducts = async (limit = 20, offset = 0) => {
         offset: offset,
       },
     });
+    
     return data.map((product) => ({
       ...product,
       images: product.images.map(
-        (image) => `${api_url}/files/products/${image}`
+        (image) => `${api_url}/files/product/${image}`
       ),
     }));
   } catch (error) {
